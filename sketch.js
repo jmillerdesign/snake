@@ -23,6 +23,7 @@ function draw() {
 	}
 
 	if (apple.isEaten()) {
+		game.score++;
 		apple.changePosition();
 		snake.grow();
 	}
