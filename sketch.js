@@ -19,6 +19,7 @@ function draw() {
 	snake.changePosition();
 
 	if (snake.isCollision()) {
+		snake.die();
 		game.over();
 	}
 

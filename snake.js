@@ -28,7 +28,7 @@ function Snake() {
 	}
 
 	this.draw = function () {
-		fill(255);
+		fill(this.color);
 		noStroke();
 		rect(this.x, this.y, game.grid, game.grid);
 		for (var i = this.tail.length - 1; i >= 0; i--) {
@@ -53,7 +53,12 @@ function Snake() {
 		);
 	}
 
+	this.die = function () {
+		this.color = 50;
+	}
+
 	this.reset = function () {
+		this.color = 255;
 		this.x = 0 - game.grid;
 		this.y = 0;
 		this.xDirection = game.grid;
