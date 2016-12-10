@@ -6,10 +6,13 @@ function Game() {
 		fill(255);
 		stroke(1);
 		textSize(32);
-		text('GAME OVER', 0, 0, game.width, game.height);
+		text('GAME OVER', 0, 0, this.width, this.height - 20);
 
 		textSize(16);
-		text('Press [spacebar] to play again', 0, 50, game.width, game.height);
+		text('Score: ' + snake.tail.length, 0, 20, this.width, this.height);
+
+		textSize(16);
+		text('Press [spacebar] to play again', 0, 110, this.width, this.height);
 
 		noLoop();
 	}
