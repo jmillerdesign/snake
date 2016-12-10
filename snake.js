@@ -17,14 +17,24 @@ function Snake() {
 
 	this.changePosition = function () {
 		this.tail.unshift({x: this.x, y: this.y});
-		this.tail = this.tail.slice(0, this.tail.length - 1);
 
 		this.x += this.xDirection;
 		this.y += this.yDirection;
 	}
 
-	this.grow = function () {
-		this.tail.push({x: this.x, y: this.y});
+	this.explode = function () {
+		var newTail = [];
+
+		for (var i = this.tail.length - 1; i >= 0; i--) {
+			if (!(
+				((this.tail[i].x > (apple.x - 3 * game.grid)) && (this.tail[i].x < (apple.x + 3 * game.grid))) &&
+				((this.tail[i].y > (apple.y - 3 * game.grid)) && (this.tail[i].y < (apple.y + 3 * game.grid)))
+			)) {
+				newTail.push(this.tail[i]);
+			}
+		}
+
+		this.tail = newTail;
 	}
 
 	this.draw = function () {
